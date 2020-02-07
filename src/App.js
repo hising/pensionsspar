@@ -14,11 +14,11 @@ import {
 class App extends Component {
   constructor() {
     super();
-    let start = 500000;
-    let monthly = 10000;
-    let years = 30;
+    let start = 25000;
+    let monthly = 750;
+    let years = 15;
     let months = years * 12;
-    let targetInterest = 0.12;
+    let targetInterest = 0.15;
     let annualInterest = null;
     let monthlyIncrease = annualInterest / 12;
     let reinvestShare = 0.33;
@@ -26,7 +26,6 @@ class App extends Component {
     let total = start;
     let data = [];
     let safeMoneyData = [];
-    let currentYear = 0;
 
     let safeMoney = 0;
     let safeMoneyInterest = 0.03;
@@ -74,7 +73,8 @@ class App extends Component {
       0.1,
       -0.012,
       0.05,
-      0.04
+      0.04,
+        0.3
     ];
 
     for (let i = 0; i < months; i++) {
@@ -122,10 +122,8 @@ class App extends Component {
   }
 
   render() {
-    let safeTotal = parseInt(
-      this.state.safeMoneyData[this.state.safeMoneyData.length - 1].y
-    );
-    let stockTotal = parseInt(this.state.data[this.state.data.length - 1].y);
+
+    //let stockTotal = parseInt(this.state.data[this.state.data.length - 1].y);
     return (
       <div className="App">
         <XYPlot height={300} width={900}>
